@@ -1,0 +1,15 @@
+﻿@model EntityLayer.Concrete.Dosya
+
+<form method="post" asp-action="UpdateDosya" asp-controller="Home" enctype="multipart/form-data">
+    <input type="hidden" value="@Model.Id" name="id" />
+    <input type="file" id="files" class="mb-3 form-control" name="Getfile" accept=".pdf,.jpg" style="display:none;" required />
+    @*Burada accept'la hangi türden dosyaları alacağımızı belirtiyoruz*@
+    <div class="mb-3">
+        <label for="files" style="h" id="labelId">@Model.Ad@Model.DosyaTipi (Düzenlemek için tıklayınız)</label>
+        @*Burada for'la id'si files olan input'u ilişkilendiriyoruz. Bundan dolayı Label'a tıkladığımız zaman input aktif oluyor*@
+    </div>
+    <input type="submit" class="btn btn-primary" value="Düzenle" />
+</form>
+@section Scripts {
+    <script src="~/js/updatedosya.js"></script>
+}

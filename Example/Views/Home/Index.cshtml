@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<Dosya>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Dosya Tipi</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Ad</td>
+                <td>@item.DosyaTipi</td>
+                <td>
+                    <a href="/Home/DeleteDosya/@item.Id" onclick="return confirm('Dosyayı silmek istediğinize emin misiniz?');" class="btn btn-danger">Sil</a>
+                    <a href="/Home/UpdateDosya/@item.Id" class="btn btn-success">Düzenle</a>
+                    <a href="/Home/DownloadDosya/@item.Id" class="btn btn-primary">İndir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
